@@ -1,0 +1,32 @@
+{% extends 'common.html' %} 
+
+{% block title %}All Safe Home{% endblock %}
+
+{% block body %}
+
+<div class="container m-3">
+    <h4 class="text-center" >Select Tasks To Preform on AllSafe Website (<a href="http://www.allsafe.in/">allsafe.in</a>)</h4>
+    <form class="row border border-dark py-5 m-5" style="text-align: center;" method="POST" onsubmit="validate()">
+        {% csrf_token %}
+        <div class="col-md-12">
+        <input type="checkbox" name="tasks" value="1">
+        <label > Get Title of the Website</label>
+        </div>
+        <div class="col-md-12">
+        <input type="checkbox" name="tasks" value="2">
+        <label > Get Services from the website</label>
+        </div>
+        <div class="col-md-12">
+        <input type="checkbox" name="tasks" value="3">
+        <label > Get All links from the website</label>
+        </div>
+        <div class="col-md-12">
+        <div class="py-5" style="text-align: center !important;">
+            <button class="btn btn-warning" type="submit">Submit</button>
+        </div>
+        
+    </form>
+
+</div>
+
+{% endblock %}

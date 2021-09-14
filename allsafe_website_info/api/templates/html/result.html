@@ -1,0 +1,40 @@
+{% extends 'common.html' %}
+
+{% block title %} Result {% endblock %}
+
+{% block body %}
+
+<div class="container my-5">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label class="form-control">Task Id</label>
+        <input class="form-control" type="text" name="task_id" >
+        <div> 
+            <button class="btn btn-warning" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% if status %}
+<div class="container my-4 p-2">
+    <div class="container bg-info p-4 text-center text-light " s>
+        <p >Status : <span style="color: {% if status == 'PENDING' %}red{% else %}green{% endif %};">{{status}}</span> </p>
+        {% if result %}
+        {% for key, value in result.items %}
+        <p>{{key}}</p>
+        <p class="border border-light w-100">
+        </p>
+        {% for data in value %}
+        
+        <p>{{forloop.counter}}) {{data}}</p>   
+    
+        {% endfor %}
+        
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endif %}
+
+{%endblock%}
